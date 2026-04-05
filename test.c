@@ -3,9 +3,10 @@
 int main(){
     
     int c;
-    c = getchar();
-    putchar(c);
-    putchar(c);
-    putchar(c);
+    while (1)
+    {
+        printf("noice\n");
+    }
+    
     return 0;
 }
