@@ -5,7 +5,7 @@
 
 int main(){
     int c, nl, nc, nw, state;
-    int num[] = {1,2,3,4,5,6,7,8,9,10};
+    int temp, temp2;
 
     state = OUT;
     nl = nw = nc = 0;
@@ -26,7 +26,6 @@ int main(){
     }
 
     printf("%d %d %d\n", nl, nw, nc);
+
     return 0;
-
-
 }
