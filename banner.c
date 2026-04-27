@@ -27,7 +27,7 @@ void printheader() {
             Sleep(80); /* the sleep f'n in the windows is weird*/
         }
     }
-
+    // the S is capital
     fclose(file);
 }
 
