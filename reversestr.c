@@ -1,3 +1,5 @@
+// use , as the seperator
+
 #include <stdio.h>
 #include <string.h>
 
