@@ -1,5 +1,6 @@
 // the goat
 #include <stdio.h>
+#include <string.h>
 #define box 219
 
 int main() {
