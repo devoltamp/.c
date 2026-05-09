@@ -1,6 +1,6 @@
 // it's not that popular to use this but we are gonna do it anyways
 #include <stdio.h>
-#include <string.h>
+#include <string.h> /*and also sizeof()*/
 
 int main(){
 
