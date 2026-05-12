@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
 // #include <conio.h> // no need it atleast i gotta define it explicitly
 
 
@@ -137,6 +138,15 @@ int main()
                 push(pop() / op2);
             else
                 printf("error: zero divisor\n");
+            break;
+
+        // added modulus
+        case '%':
+            op2 = pop();
+            if (op2 != 0.0)
+                push((int)pop() % (int)op2);
+            else
+                printf("error");
             break;
 
         case '\n':
