@@ -12,6 +12,7 @@
 #define MAXVAL 100
 #define BUFSIZE 100
 
+// they are all defined below but still it's noice to again do it all
 int getop(char []);
 void push(double);
 double pop(void);
