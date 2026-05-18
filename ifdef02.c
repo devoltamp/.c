@@ -1,3 +1,4 @@
+// much used in other computation
 #include <stdio.h>
 
 #if SYSTEM  == SYSV
