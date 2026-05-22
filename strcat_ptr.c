@@ -1,4 +1,7 @@
-/* concatination of two strings s & t */
+/* concatination of two strings s & t
+--> never confuse with the array and pointer array both
+can be written as if like they are one single thing
+*/
 #include <stdio.h>
 #include <string.h>
 
