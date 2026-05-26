@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* even a slightest mistake can mess up the whole code */
+/* even a slightest mistake can mess up the whole code ~ a little change*/
 void printr(int (*daytab)[13]){
     printf("feb. %d\n", (*daytab)[2]);
 }
