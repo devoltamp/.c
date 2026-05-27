@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define XMAX 100
-#define YMAX 100
+#define XMAX 200
+#define YMAX 200
 
 
 struct point{
@@ -29,6 +29,12 @@ struct point addpoint(struct point p1, struct point p2){
     /* instead of making an explicit temp the value is stored in the p1 */
 }
 
+/* point in rectangle */
+int ptinrect(struct point p, struct rect r){
+    return p.x >= r.pt1.x && p.x < r.pt2.x
+        && p.y >= r.pt1.y && p.y < r.pt2.y;
+}
+
 int main(){
 
     struct rect screen;
@@ -47,6 +53,18 @@ int main(){
     puts("adding of two points:");
     middle = addpoint(screen.pt1, screen.pt2);
     printf("%d, %d\n", middle.x, middle.y);
+
+
+    /* for point in rectangle */
+    int i;
+    /* i = ptinrect(makepoint(10, 20), screen);
+    giving the value is little tricky
+    */
+    i = ptinrect(middle, screen);
+    if (i == 1)
+        printf("it's in");
+    else
+        printf("it's not");
 
     return 0;
 }
