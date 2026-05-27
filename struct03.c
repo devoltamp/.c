@@ -1,3 +1,6 @@
+/* here the same basic increment and decrements would work
+but the be carefull of the precedence
+*/
 #include <stdio.h>
 
 struct point makepoint(int x, int y){
