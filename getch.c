@@ -23,25 +23,26 @@ void ungetch(int c)
 		buf[bufp++] = c;
 }
 
-int main(void)
-{
-	int i = 0;
-	char ch;
-	puts("input an integer followed by a char:");
 
-
-	/* read chars until non digit or EOF */
-	while ((ch = getch()) != EOF && isdigit(ch))
-		i = 10 * i + ch - 48;
-
-		if (ch != EOF)
-			ungetch(ch);
-
-	printf("i = %d, next char in buffer = %c\n", i, getch());
-    printf("%c\n", ch);
-
-    for (int i = 0; i<BUFSIZE; i++)
-        printf("%d", buf[i]);
-    printf("\n");
-	return 0;
-}
+// int main(void)
+// {
+// 	int i = 0;
+// 	char ch;
+// 	puts("input an integer followed by a char:");
+//
+//
+// 	/* read chars until non digit or EOF */
+// 	while ((ch = getch()) != EOF && isdigit(ch))
+// 		i = 10 * i + ch - 48;
+//
+// 		if (ch != EOF)
+// 			ungetch(ch);
+//
+// 	printf("i = %d, next char in buffer = %c\n", i, getch());
+//     printf("%c\n", ch);
+//
+//     for (int i = 0; i<BUFSIZE; i++)
+//         printf("%d", buf[i]);
+//     printf("\n");
+// 	return 0;
+// }
