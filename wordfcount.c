@@ -99,6 +99,7 @@ int main(){
             root = addtree(root, word);
     treeprint(root);
     }
+    free(root);
     return 0;
 }
 /* here the EOF being the ctrl + z followed by an enter */
