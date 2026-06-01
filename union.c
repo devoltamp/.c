@@ -6,7 +6,7 @@ union utag{
     int ival;
     float fval;
     char *sval;
-} *u;
+} u;
 
 /* unions: only be initialized by the first type that is written
 cause the first usage case of union was int
