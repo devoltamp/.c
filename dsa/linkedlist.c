@@ -65,11 +65,34 @@ struct node *display(struct node *start){
     return start;
 }
 
+/* insert at beg. */
+struct node *insert_beg(struct node *start){
 
+    struct node *new_node;
+    struct node *ptr;
+    int num;
+    puts("enter the data: ");
+    scanf("%d", &num);
+    new_node = (struct node *)malloc(sizeof(struct node));
+    // ptr = (struct node *)malloc(sizeof(struct node *));
+
+    new_node->data = num;
+    ptr = start;
+    // struct node *ptr = NULL;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+    ptr->next = new_node;   /* last node points to new node */
+    new_node->next = start; /* new node points to old first node */
+    start = new_node;       /* start now points to new node */
+
+    return start;
+}
 
 int main(){
 
     start = create_cll(start);
+    start = insert_beg(start);
     start = display(start);
     /*
     printf("\n%d", start->data);
@@ -77,3 +100,4 @@ int main(){
     */
     return 0;
 }
+/* structures are getting out of hand */
