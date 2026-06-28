@@ -89,15 +89,38 @@ struct node *insert_beg(struct node *start){
     return start;
 }
 
+struct node *insert_end(struct node *start){
+
+    /* pretty much the same except
+    the start = new_node part -- we want it at the end */
+    struct node *new_node;
+    struct node *ptr;
+    int num;
+    puts("to be added at the last");
+    puts("enter the data: ");
+    scanf("%d", &num);
+    new_node = (struct node *)malloc(sizeof(struct node));
+
+    new_node->data = num;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+    ptr->next = new_node;
+    new_node->next = start;
+    return start;
+}
+
 int main(){
 
     start = create_cll(start);
     start = insert_beg(start);
+    start = insert_end(start);
     start = display(start);
+
     /*
     printf("\n%d", start->data);
     printf("\n%xu", start->next);
     */
     return 0;
 }
-/* structures are getting out of hand */
