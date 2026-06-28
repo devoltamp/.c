@@ -125,12 +125,44 @@ struct node *del_beg(struct node *start){
     return start;
 }
 
+/* we gotta make a copy -- without that it can't be accessed */
+struct node *del_after(struct node *start){
+
+    struct node *ptr;
+    struct node *prev = NULL;
+    ptr = start;
+
+    while(ptr->next != start){
+        prev = ptr;
+        ptr = ptr->next;
+    }
+
+    prev->next = start;
+    free(ptr);
+    /* after the free we can't access via the display */
+    return start;
+}
+
+struct node *del_list(struct node *start){
+
+    // struct node *start = NULL;
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != start){
+        start = del_after(start);
+    }
+    free(start);
+    return start;
+}
+
 int main(){
 
     start = create_cll(start);
     start = insert_beg(start);
     start = insert_end(start);
     start = del_beg(start);
+    start = del_after(start);
+    start = del_list(start);
     start = display(start);
 
     /*
