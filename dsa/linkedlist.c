@@ -1,5 +1,5 @@
 /* each para. will be -- stuct node *start
- *
+ * 10 - 20 - 30 - 40 - 50 - 60 -- the example
  *
 */
 #include <stdio.h>
@@ -111,11 +111,26 @@ struct node *insert_end(struct node *start){
     return start;
 }
 
+/* just freeing the *first */
+struct node *del_beg(struct node *start){
+
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+    ptr->next = start->next;    /* skips the start itself */
+    free(start);
+    start = ptr->next;          /* it'll begin from the 20 */
+    return start;
+}
+
 int main(){
 
     start = create_cll(start);
     start = insert_beg(start);
     start = insert_end(start);
+    start = del_beg(start);
     start = display(start);
 
     /*
