@@ -78,10 +78,51 @@ struct node *display(struct node *start){
     return start;
 }
 
+/* apn -- as per name */
+struct node *insert_beg(struct node *start){
+
+    struct node *new_node;
+    int num;
+    printf("enter the data: ");
+    scanf("%d", &num);
+
+    new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->data = num;
+    start->prev = new_node;
+    new_node->next = start;
+    new_node->prev = NULL;
+
+    start = new_node;
+    return start;
+    /* new_node will be the start point
+    each line has it's own value here */
+}
+
+struct node *insert_end(struct node *start){
+
+    struct node *new_node, *ptr;
+    int num;
+    printf("enter the data: ");
+    scanf("%d", &num);
+
+    new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->data = num;
+    ptr = start;
+    /* i forgot to add the ->next it would not print */
+    while(ptr->next != NULL){
+        ptr = ptr->next;
+    }
+    ptr->next = new_node;
+    new_node->prev = ptr;
+    new_node->next = NULL;
+    return start;
+}
 
 int main(){
 
     start = create_ll(start);
+    start = insert_beg(start);
+    start = insert_end(start);
     start = display(start);
 
     return 0;
