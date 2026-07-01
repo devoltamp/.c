@@ -164,13 +164,66 @@ struct node *insert_after(struct node *start){
     return start;
 }
 
+struct node *delete_beg(struct node *start){
+
+    /* in todays microc. lect. my prof. told me that
+    it;s always right to left */
+    start = start->next;
+    start->prev = NULL;
+    return start;
+}
+
+struct node *delete_end(struct node *start){
+
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != NULL){
+        ptr = ptr->next;
+    }
+    // ptr = NULL;
+    ptr->prev->next = NULL;     /* it's not directly written like that */
+    free(ptr);
+    return start;
+}
+
+/* gives the last element */
+struct node *_delete_end(struct node *start){
+
+    while(start->next != NULL){
+        start = start->next;
+    }
+    start->prev->next = NULL;
+    return start;
+}
+
+struct node *del_list(struct node *start){
+
+    /*
+    while(start == NULL){
+        start = delete_beg(start);
+        if(start == NULL){
+            printf("you've reached the end");
+        }
+    }
+    */
+    while(start != NULL)
+        start = delete_beg(start);
+    return start;
+}
+
 int main(){
 
     start = create_ll(start);
-    // start = insert_beg(start);
-    // start = insert_end(start);
-    // start = insert_before(start);
+    start = insert_beg(start);
+    start = insert_end(start);
+    start = insert_before(start);
     start = insert_after(start);
+    start = delete_beg(start);
+    start = delete_end(start);
+    start = _delete_end(start);
+    start = del_list(start);
     start = display(start);
+
     return 0;
 }
+/* comment accordingly to the test */
