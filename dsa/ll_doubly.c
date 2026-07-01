@@ -118,12 +118,59 @@ struct node *insert_end(struct node *start){
     return start;
 }
 
+struct node *insert_before(struct node *start){
+
+    struct node *ptr, *new_node;
+    int num, val;
+    printf("enter the data: ");
+    scanf("%d", &num);
+    printf("enter the value before you wanna add: ");
+    scanf("%d", &val);
+
+    new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->data = num;
+    ptr = start;
+    while(ptr->data != val){
+        ptr = ptr->next;
+    }
+
+    /* now comes the part */
+    new_node->next = ptr;
+    new_node->prev = ptr->prev;
+    ptr->prev->next = new_node;
+    ptr->prev = new_node;
+    return start;
+};
+
+struct node *insert_after(struct node *start){
+
+    struct node *ptr, *new_node;
+    int num, val;
+    printf("enter the data: ");
+    scanf("%d", &num);
+    printf("enter the val that you wanna add after: ");
+    scanf("%d", &val);
+
+    new_node = (struct node *)malloc(sizeof(struct node));
+    new_node->data = num;
+    ptr = start;
+    while(ptr->data != val){
+        ptr = ptr->next;
+    }
+    new_node->prev = ptr;
+    new_node->next = ptr->next;
+    ptr->next->prev = new_node;     /* to replace the own value */
+    ptr->next = ptr;
+    return start;
+}
+
 int main(){
 
     start = create_ll(start);
-    start = insert_beg(start);
-    start = insert_end(start);
+    // start = insert_beg(start);
+    // start = insert_end(start);
+    // start = insert_before(start);
+    start = insert_after(start);
     start = display(start);
-
     return 0;
 }
