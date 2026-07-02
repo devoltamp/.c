@@ -92,12 +92,79 @@ struct node *insert_beg(struct node *start){
     return start;
 }
 
+struct node *insert_end(struct node *start){
+
+    struct node *ptr, *nn;
+    int num;
+    printf("enter data: ");
+    scanf("%d", &num);
+
+    nn = (struct node *)malloc(sizeof(struct node));
+    nn->data = num;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+
+    /* with the diagram -- it's pretty straight forward */
+    ptr->next = nn;
+    nn->prev = ptr;
+    nn->next = start;
+    start->prev = nn;
+    return start;
+}
+
+struct node *del_beg(struct node *start){
+
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+
+    ptr->next = start->next;
+    start->next->prev = ptr;
+    /* here we can't write start->prev = null
+    cause we haven't actually given out the start */
+
+    free(start);
+    start = ptr->next;
+    return start;
+}
+
+struct node *del_end(struct node *start){
+
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+
+    /* to remove the block */
+    ptr->prev->next = start;
+    start->prev = ptr->prev;
+    free(ptr);
+    return start;
+}
+
+struct node *del_list(struct node *start){
+
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != start){
+        start = del_end(start);
+    }
+    free(start);
+    return start;
+}
 
 int main(){
 
     start = create_ll(start);
     start = insert_beg(start);
     start = display(start);
+    /* others could be
+    added just like these */
 
     return 0;
 }
