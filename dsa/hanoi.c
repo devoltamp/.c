@@ -1,3 +1,6 @@
+/* for n = 3;
+the exact number of steps are 8
+-- & that is pretty cool */
 #include <stdio.h>
 
 void move(int n, char source, char dest, char spare){
