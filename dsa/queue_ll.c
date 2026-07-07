@@ -1,6 +1,7 @@
 /* linked list rep.
 when the three -> comes things
-gets a little heated */
+gets a little heated
+-- some problems may occur */
 #include <stdio.h>
 #include <stdlib.h>
 
