@@ -41,8 +41,46 @@ node *insert(node *tree, int val){
     return tree;
 }
 
+/* traversal */
+/* pre -- root -> left -> right */
+void pre(node *tree){
+
+    if (tree != NULL){
+        printf("%d  ", tree->data);
+        pre(tree->l);    /* untill all the left ptr are not over it'll not move to the right one */
+        pre(tree->r);
+    }
+}
+
+/* in -- left -> root -> right */
+void in(node *tree){
+
+    if (tree != NULL){
+        in(tree->l);
+        printf("%d  ", tree->data);
+        in(tree->r);
+    }
+}
+
+/* post -- left -> right -> root */
+void post(node *tree){
+
+    if (tree != NULL){
+        post(tree->l);
+        post(tree->r);
+        printf("%d  ", tree->data);
+    }
+}
+
 int main(){
 
-    tree = insert(tree, val);
+    tree = insert(tree, 10);
+    tree = insert(tree, 20);
+    tree = insert(tree, 30);
+    pre(tree);
+    printf("\n");
+    in(tree);
+    printf("\n");
+    post(tree);
     return 0;
 }
