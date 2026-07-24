@@ -16,11 +16,10 @@ node *insert(node *tree, int val){
 
     node *ptr, *nodeptr, *parentptr;
     /* root */
-    ptr = (node *)malloc(sizeof(struct node));
+    ptr = malloc(sizeof(node));
     ptr->data = val;
-    ptr->l,
-    ptr->r = NULL;
-    if (ptr == NULL){
+    ptr->l = ptr->r = NULL;
+    if (tree == NULL){
         tree = ptr;
     }
     else{
@@ -40,4 +39,10 @@ node *insert(node *tree, int val){
             parentptr->r = ptr;
     }
     return tree;
+}
+
+int main(){
+
+    tree = insert(tree, val);
+    return 0;
 }
