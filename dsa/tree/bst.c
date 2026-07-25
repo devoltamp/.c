@@ -89,6 +89,72 @@ node *largest(node *tree){
         /* cause the left would have all the smallest */
 }
 
+/* del. element
+with child being 0, 1, 2
+
+*/
+node *del(node *tree, int val){
+
+    node *parent, *child, *suc, *psuc, *ptr;
+    if (tree->l == NULL){
+        puts("empty tree");
+        return (tree);
+    }
+
+    parent = tree;
+    child = tree->l;
+
+    /* searching for the node
+    10 != null 10 != 11
+    -- inhereting the positions */
+    while (child != NULL && val != child->data){
+        parent = child;
+        if (val < child->data)
+            child = child->l;
+        else
+            child = child->r;
+    }
+
+    if (child == NULL){
+        puts("the val is not there in the tree");
+        return (tree);
+    }
+
+    /* 2 child */
+    if (child->l != NULL && child->r != NULL){
+        psuc = child;
+        suc = child->r;
+
+        /* the far most left possible */
+        while (suc->l != NULL){
+            psuc = suc;
+            suc = suc->l;
+        }
+
+        /* getting the data */
+        child->data = suc->data;
+
+        /* targets redirected */
+        child = suc;
+        parent = psuc;
+    }
+
+    /* 0 or 1 child */
+    if (child->l == NULL)
+        ptr = child->r;
+    else
+        ptr = child->l;
+
+    /* relinking the parent to child */
+    if (parent->l == child)
+        parent->l = ptr;
+    else
+        parent->r = ptr;
+
+    free(child);
+    return tree;
+}
+
 int main(){
 
     tree = insert(tree, 10);
