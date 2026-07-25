@@ -180,6 +180,18 @@ int external_nodes(node *tree){
     }
 }
 
+int internal_nodes(node *tree){
+    if ((tree == NULL) || (tree->l == NULL) && (tree->r == NULL)){
+        return 0;
+    }
+    /* if wrote sepe. there would be
+    two ifs -- that's just breh */
+    else{
+        return (internal_nodes(tree->l) + internal_nodes(tree->r) + 1);
+    }
+    /* +1 for the root */
+}
+
 int main(){
 
     tree = insert(tree, 10);
