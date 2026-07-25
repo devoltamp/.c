@@ -192,6 +192,8 @@ int internal_nodes(node *tree){
     /* +1 for the root */
 }
 
+/* in the height calculation
+it's considered from the bottom to top */
 int height(node *tree){
     int leftheight, rightheight;
     if (tree == NULL){
