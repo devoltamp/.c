@@ -153,6 +153,33 @@ node *del(node *tree, int val){
     return tree;
 }
 
+/* that +1 plays a very critical role there
+tree represents the generalized ptr
+    10
+    /\
+   5 15
+*/
+int total_node(node *tree){
+    if (tree == NULL){
+        return 0;
+    }
+    else{
+        return (total_node(tree->l) + total_node(tree->r) + 1);
+    }
+}
+
+int external_nodes(node *tree){
+    if (tree == NULL){
+        return 0;
+    }
+    else if ((tree->l == NULL) && (tree->r == NULL)){
+        return 1;
+    }
+    else{
+        return (external_nodes(tree->l) + external_nodes(tree->r));
+    }
+}
+
 int main(){
 
     tree = insert(tree, 10);
