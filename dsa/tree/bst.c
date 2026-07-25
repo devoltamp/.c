@@ -192,6 +192,44 @@ int internal_nodes(node *tree){
     /* +1 for the root */
 }
 
+int height(node *tree){
+    int leftheight, rightheight;
+    if (tree == NULL){
+        return 0;
+    }
+    else{
+        leftheight = height(tree->l);
+        rightheight = height(tree->r);
+        if (leftheight > rightheight)
+            return (leftheight + 1);
+        else
+            return (rightheight + 1);
+    }
+}
+
+/* recursive part executes the whole f'n */
+node *mirror(node *tree){
+    node *ptr;
+    if (tree != NULL){
+        mirror(tree->l);
+        mirror(tree->r);
+
+        /* the swap */
+        ptr = tree->l;
+        ptr->l = ptr->r;
+        tree->r = ptr;  /* where, ptr = tree->l */
+    }
+}
+
+node *deltree(node *tree){
+    /* it's if not while -- there's a difference */
+    if (tree != NULL){
+        deltree(tree->l);
+        deltree(tree->r);
+        free(tree);
+    }
+}
+
 int main(){
 
     tree = insert(tree, 10);
