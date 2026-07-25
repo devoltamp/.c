@@ -90,9 +90,7 @@ node *largest(node *tree){
 }
 
 /* del. element
-with child being 0, 1, 2
-
-*/
+with child being 0, 1, 2 */
 node *del(node *tree, int val){
 
     node *parent, *child, *suc, *psuc, *ptr;
