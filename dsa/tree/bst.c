@@ -72,6 +72,23 @@ void post(node *tree){
     }
 }
 
+
+node *smallest(node *tree){
+    if ((tree == NULL) || (tree->l == NULL))
+        return tree;
+        /* cause there's no left root will be the smallest */
+    else
+        return smallest(tree->l);
+}
+
+node *largest(node *tree){
+    if ((tree == NULL) || (tree->r == NULL))
+        return tree;
+    else
+        return largest(tree->r);
+        /* cause the left would have all the smallest */
+}
+
 int main(){
 
     tree = insert(tree, 10);
