@@ -1,6 +1,5 @@
 /* idk but thought why not make a simple prog. that can do it for me
-https://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)Randomization.html
-*/
+https://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)Randomization.html */
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
